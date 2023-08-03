@@ -7,6 +7,7 @@ using namespace std;
     Time Complexity = O(1)
     Space Complexity = O(1)
 */
+
 void decimal_to_binary(long long X, int *arr)
 {
     int index = 31;
@@ -36,7 +37,7 @@ int main()
     cin >> X;
 
     int arr[32];
-    long long output = 0;
+    long long reverse = 0;
     if (X <= INT32_MAX && X >= 0)
     {
         decimal_to_binary(X, arr);
@@ -44,13 +45,13 @@ int main()
         long long temp = 1;
         for (auto i : arr)
         {
-            output = output + i * temp;
+            reverse = reverse + i * temp;
             temp *= 2;
         }
     }
 
     cout << endl
-         << "Reversed number is: " << output;
+         << "Reversed number is: " << reverse;
 
     return 0;
 }

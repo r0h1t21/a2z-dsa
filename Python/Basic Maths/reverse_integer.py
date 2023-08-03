@@ -3,7 +3,7 @@
 '''
 
 
-def reverse_method_1(n):
+def method_1(n):
     '''
         Time Complexity = O(log n)
         Space Complexity = O(1)
@@ -36,7 +36,7 @@ def reverse_method_1(n):
     return reverse
 
 
-def reverse_method_2(n):
+def method_2(n):
     '''
         Time Complexity = O(log n)
         Space Complexity = O(log n)
@@ -62,7 +62,7 @@ def reverse_method_2(n):
 
 print("Enter the number:")
 n = int(input())
-reverse_num_1 = reverse_method_1(n)
-print("Method 1 Result:", reverse_num_1)
-reverse_num_2 = reverse_method_2(n)
-print("Method 2 Result:", reverse_num_2)
+reverse = method_1(n)
+print("Method 1 Result:", reverse)
+reverse = method_2(n)
+print("Method 2 Result:", reverse)

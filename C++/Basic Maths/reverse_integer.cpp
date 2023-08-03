@@ -6,13 +6,13 @@ using namespace std;
     Solution for the problem: https://leetcode.com/problems/reverse-integer/
 */
 
-/*
-    Time Complexity = O(log n)
-    Space Complexity = O(1)
-*/
-int reverse_method_1(int x)
+int method_1(int x)
 {
-    int reversed = 0;
+    /*
+        Time Complexity = O(log n)
+        Space Complexity = O(1)
+    */
+    int reverse = 0;
     while (x != 0)
     {
         int digit = x % 10;
@@ -24,23 +24,23 @@ int reverse_method_1(int x)
                 not exceed 7. Similarly, for negative numbers, if "reversed" is "equal to INT32_MIN / 10",
                 the last digit should not be less than -8.
         */
-        if (reversed > INT32_MAX / 10 || (reversed == INT32_MAX / 10 && digit > 7))
+        if (reverse > INT32_MAX / 10 || (reverse == INT32_MAX / 10 && digit > 7))
             return 0;
-        if (reversed < INT32_MIN / 10 || (reversed == INT32_MIN / 10 && digit < -8))
+        if (reverse < INT32_MIN / 10 || (reverse == INT32_MIN / 10 && digit < -8))
             return 0;
-        reversed = reversed * 10 + digit;
+        reverse = reverse * 10 + digit;
         x /= 10;
     }
 
-    return reversed;
+    return reverse;
 }
 
-/*
-    Time Complexity = O(log n)
-    Space Complexity = O(log n)
-*/
-int reverse_method_2(int x)
+int method_2(int x)
 {
+    /*
+        Time Complexity = O(log n)
+        Space Complexity = O(log n)
+    */
     string n;
     if (x < 0)
     {
@@ -50,18 +50,18 @@ int reverse_method_2(int x)
     {
         n = to_string(x);
     }
-    int index = n.size();
-    for (int i = 0; i < index / 2; i++)
+    int size = n.size();
+    for (int i = 0; i < size / 2; i++)
     {
-        swap(n[i], n[index - i - 1]);
+        swap(n[i], n[size - i - 1]);
     }
-    long out = stol(n);
-    if (out <= INT32_MAX && out >= INT32_MIN)
+    long reverse = stol(n);
+    if (reverse <= INT32_MAX && reverse >= INT32_MIN)
     {
         if (x < 0)
-            return 0 - out;
+            return 0 - reverse;
         else
-            return out;
+            return reverse;
     }
     else
         return 0;
@@ -70,12 +70,13 @@ int reverse_method_2(int x)
 int main()
 {
     int n;
+    int reverse;
     cout << "Enter the number:" << endl;
     cin >> n;
-    int reverse_num_1 = reverse_method_1(n);
-    cout << "Method 1 Result: " << reverse_num_1 << endl;
-    int reverse_num_2 = reverse_method_2(n);
-    cout << "Method 2 Result: " << reverse_num_2 << endl;
+    reverse = method_1(n);
+    cout << "Method 1 Result: " << reverse << endl;
+    reverse = method_2(n);
+    cout << "Method 2 Result: " << reverse << endl;
 
     return 0;
 }

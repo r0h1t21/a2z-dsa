@@ -1,7 +1,7 @@
 import math
 
 
-def count_digits_method_1(n):
+def method_1(n):
     '''
         Extract digits and calculate the count
         Time Complexity = O(log n)
@@ -18,7 +18,7 @@ def count_digits_method_1(n):
     return count
 
 
-def count_digits_method_2(n):
+def method_2(n):
     '''
         Calculate the step (greatest integer function) of log base 10 of the number which would give the
         number of digits (Since logarithm base 10 of any value is nothing but the exponent to which 10
@@ -30,7 +30,7 @@ def count_digits_method_2(n):
     return math.floor(math.log10(n) + 1)
 
 
-def count_digits_method_3(n):
+def method_3(n):
     '''
         Convert the integer to string and calculate length of the string
         Time Complexity = O(1)
@@ -43,9 +43,9 @@ def count_digits_method_3(n):
 
 print("Enter the number:")
 n = int(input())
-out1 = count_digits_method_1(n)
+out1 = method_1(n)
 print(out1)
-out2 = count_digits_method_2(n)
+out2 = method_2(n)
 print(out2)
-out3 = count_digits_method_3(n)
+out3 = method_3(n)
 print(out3)

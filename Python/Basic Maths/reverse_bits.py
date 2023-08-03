@@ -6,7 +6,7 @@
 
 print("Enter the number:")
 n = int(input())
-bin = 1
+bin_pow = 1
 index = 31
 reverse = 0
 bits = [0] * (index + 1)
@@ -17,7 +17,7 @@ while n > 0:
     n = n // 2
 
 for i in bits:
-    reverse += i * bin
-    bin *= 2
+    reverse += i * bin_pow
+    bin_pow *= 2
 
 print("Reversed number is:", reverse)
