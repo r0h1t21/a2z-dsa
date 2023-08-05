@@ -18,8 +18,8 @@ void method_1(int n)
 void method_2(int n)
 {
     /*
-        The quotient of a division by one of the divisors is actually another divisor. And the square root of a number
-        acts like the splitting part of all the divisors of a number.
+        The quotient of a division by one of the divisors is actually another divisor. And the square root of the number
+        acts like the splitting part of all the divisors of that number.
         Time Complexity = O(√n)
         Space Complexity = O(1)
     */
