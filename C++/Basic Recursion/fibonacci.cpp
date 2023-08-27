@@ -5,36 +5,21 @@ using namespace std;
 /*
     Solution for the problem: https://www.codingninjas.com/studio/problems/print-fibonacci-series_7421617
     Recursive approach
-        Time Complexity = O(n)
-        Space Complexity = O(n)
+    Time Complexity = O(2 ^ n), since for each node in recursion tree there are at max 2 child nodes, and for a given n, the recursion tree depth would be n
+    Space Complexity = O(n), since depth of recursion tree is n, for a given n
 */
 
-vector<int> fibonacciNumbers(vector<int> &fibonacciNumsList, int n, int i)
+int fibonacci_num(int n)
 {
-    if (i >= n)
-        return fibonacciNumsList;
-    fibonacciNumsList.push_back(fibonacciNumsList[i - 1] + fibonacciNumsList[i - 2]);
-
-    return fibonacciNumbers(fibonacciNumsList, n, i + 1);
+    if (n <= 1)
+        return n;
+    return fibonacci_num(n - 1) + fibonacci_num(n - 2);
 }
 
 int main()
 {
     int n;
-    vector<int> fibonacciNumsList;
     cout << "Enter the number: " << endl;
     cin >> n;
-    fibonacciNumsList.push_back(0);
-    if (n > 1)
-    {
-        fibonacciNumsList.push_back(1);
-        fibonacciNumbers(fibonacciNumsList, n, 2);
-    }
-    cout << "Fibonacci numbers: ";
-    for (auto i : fibonacciNumsList)
-    {
-        cout << i << " ";
-    }
-
-    return 0;
+    cout << "The Fibonacci number is: " << fibonacci_num(n) << endl;
 }
